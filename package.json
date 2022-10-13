@@ -1,0 +1,26 @@
+{
+	"name": "filtered_stream",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"server": "nodemon app.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Jamelle-Boose/filtered_stream.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Jamelle-Boose/filtered_stream/issues"
+	},
+	"homepage": "https://github.com/Jamelle-Boose/filtered_stream#readme",
+	"dependencies": {
+		"dotenv": "^16.0.3",
+		"twitter-api-sdk": "^1.2.0"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.20"
+	}
+}
