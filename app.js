@@ -13,7 +13,7 @@ async function main() {
     if (tweet.data) {
       const username = tweet.includes.users[0].username
       const text = tweet.data.text
-      console.log(`${username}: ${text}\n\n`)
+      console.log(`${chalk.bgRed(username)}: ${text}\n\n`)
     } else {
       console.log(tweet)
     }
