@@ -18,8 +18,10 @@
 	},
 	"homepage": "https://github.com/Jamelle-Boose/filtered_stream#readme",
 	"dependencies": {
+		"better-sqlite3": "^7.6.2",
 		"chalk": "^5.1.2",
 		"dotenv": "^16.0.3",
+		"knex": "^2.3.0",
 		"twitter-api-sdk": "^1.2.0"
 	},
 	"devDependencies": {
