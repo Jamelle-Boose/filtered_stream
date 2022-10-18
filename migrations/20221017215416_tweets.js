@@ -8,4 +8,6 @@ export function up(knex) {}
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-export function down(knex) {}
+export function down(knex) {
+  //TODO add drop schema
+}
