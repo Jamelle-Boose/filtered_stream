@@ -4,7 +4,7 @@
  */
 export function up(knex) {
   return knex.schema.createTable("tweets", table => {
-    table.integer("id").primary()
+    table.string("id").primary()
     table.string("created_at")
     table.string("username")
     table.string("text")
@@ -16,5 +16,8 @@ export function up(knex) {
  * @returns { Promise<void> }
  */
 export function down(knex) {
-  //TODO add drop schema
+  return knex.schema
+    .dropTable("tweets")
+    .dropTable("knex_migrations")
+    .dropTable("knex_migrations_lock")
 }
