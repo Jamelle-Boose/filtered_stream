@@ -5,7 +5,8 @@
 	"main": "app.js",
 	"type": "module",
 	"scripts": {
-		"server": "nodemon app.js"
+		"server": "nodemon app.js",
+		"migrate": "npx knex migrate:latest --knexfile knexfile.js"
 	},
 	"repository": {
 		"type": "git",
