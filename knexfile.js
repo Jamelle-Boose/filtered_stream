@@ -6,14 +6,14 @@
 export const development = {
   client: "better-sqlite3",
   connection: {
-    filename: "./dev.sqlite3",
+    filename: "./development.sqlite3",
   },
   useNullAsDefault: true,
 }
 export const production = {
   client: "better-sqlite3",
   connection: {
-    filename: "./prod.sqlite3",
+    filename: "./production.sqlite3",
   },
   useNullAsDefault: true,
 }
