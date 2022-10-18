@@ -9,11 +9,18 @@ async function main() {
   const client = new Client(process.env.BEARER_TOKEN)
   const stream = client.tweets.searchStream({
     expansions: ["author_id"],
+    "tweet.fields": ["created_at"],
   })
-  for await (const tweet of stream) {
-    if (tweet.data) {
-      const username = tweet.includes.users[0].username
-      const text = tweet.data.text
+  for await (const res of stream) {
+    if (res.data) {
+      const username = res.includes.users[0].username
+      const { id, created_at, text } = res.data
+      const tweet = await db.insert({
+        id: id,
+        created_at: created_at,
+        username: username,
+        text: text,
+      })
       console.log(`${chalk.bgRed(username)}: ${text}\n\n`)
     } else {
       console.log(tweet)
