@@ -2,6 +2,7 @@ import * as dotenv from "dotenv"
 dotenv.config()
 
 import { Client } from "twitter-api-sdk"
+import db from "./db"
 import chalk from "chalk"
 
 async function main() {
