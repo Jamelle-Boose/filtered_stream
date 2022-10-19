@@ -2,6 +2,7 @@ import * as dotenv from "dotenv"
 dotenv.config()
 
 import { Client } from "twitter-api-sdk"
+import { blocklist } from "./blocklist.js"
 import db from "./db.js"
 import chalk from "chalk"
 
@@ -15,6 +16,7 @@ async function main() {
     try {
       if (res.data) {
         const username = res.includes.users[0].username
+        if (blocklist.includes(username)) continue
         const { id, created_at, text } = res.data
         const tweet = await db("tweets").insert(
           { id, created_at, username, text },
