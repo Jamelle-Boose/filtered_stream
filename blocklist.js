@@ -1,4 +1,5 @@
 export const blocklist = [
+  "IncMoneza",
   "Jessika70055003",
   "TradeAleart",
   "esecfutures",
