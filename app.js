@@ -12,8 +12,8 @@ async function main() {
     expansions: ["author_id"],
     "tweet.fields": ["created_at"],
   })
-  for await (const res of stream) {
-    try {
+  try {
+    for await (const res of stream) {
       if (res.data) {
         const username = res.includes.users[0].username
         if (blocklist.includes(username)) continue
@@ -26,9 +26,9 @@ async function main() {
       } else {
         console.log(res)
       }
-    } catch (error) {
-      console.error(error)
     }
+  } catch (error) {
+    console.error(error)
   }
 }
 
