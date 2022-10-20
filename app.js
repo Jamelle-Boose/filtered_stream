@@ -1,10 +1,10 @@
 import * as dotenv from "dotenv"
 dotenv.config()
 
+import chalk from "chalk"
 import { Client } from "twitter-api-sdk"
 import { blocklist } from "./blocklist.js"
 import db from "./db.js"
-import chalk from "chalk"
 
 async function main() {
   const client = new Client(process.env.BEARER_TOKEN)
