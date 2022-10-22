@@ -1,13 +1,12 @@
-import * as dotenv from "dotenv"
-dotenv.config()
-
 import chalk from "chalk"
 import { Client } from "twitter-api-sdk"
-import { blocklist } from "./blocklist.js"
+
+import blocklist from "./blocklist.js"
 import db from "./db.js"
+import config from "./config/index.js"
 
 async function main() {
-  const client = new Client(process.env.BEARER_TOKEN)
+  const client = new Client(config.bearerToken)
   const stream = client.tweets.searchStream({
     expansions: ["author_id"],
     "tweet.fields": ["created_at"],
