@@ -1,9 +1,10 @@
-import chalk from "chalk"
 import { Client } from "twitter-api-sdk"
 
 import blocklist from "./blocklist.js"
 import db from "./db.js"
 import config from "./config/index.js"
+
+import { log } from "./utils/log.js"
 
 async function main() {
   const client = new Client(config.bearerToken)
@@ -18,11 +19,11 @@ async function main() {
           const username = res.includes.users[0].username
           if (blocklist.includes(username)) continue
           const { id, created_at, text } = res.data
-          const tweet = await db("tweets").insert(
+          const [tweet] = await db("tweets").insert(
             { id, created_at, username, text },
             ["username", "text"]
           )
-          console.log(`${chalk.bgRed(tweet[0].username)}: ${tweet[0].text}\n\n`)
+          log.text(tweet)
           break
         case "errors" in res:
           console.log(res)
