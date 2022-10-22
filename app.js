@@ -1,9 +1,7 @@
 import { Client } from "twitter-api-sdk"
-
-import blocklist from "./blocklist.js"
-import db from "./db.js"
-import config from "./config/index.js"
-
+import { blocklist } from "./blocklist.js"
+import { db } from "./db.js"
+import { config } from "./config/index.js"
 import { log } from "./utils/log.js"
 
 async function main() {

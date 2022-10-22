@@ -1,4 +1,4 @@
-export default [
+export const blocklist = [
   "Shivani_2007",
   "ArvindDeshm",
   "Need_spx",
