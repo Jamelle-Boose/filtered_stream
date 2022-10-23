@@ -4,7 +4,7 @@ import { log } from "./utils/log.js"
 import { DataAccessLayer } from "./utils/dataAccessLayer.js"
 import { config } from "./config/index.js"
 
-async function main() {
+async function app() {
   const client = new Client(config.bearerToken)
   const stream = client.tweets.searchStream({
     expansions: ["author_id"],
@@ -37,4 +37,4 @@ async function main() {
   }
 }
 
-main()
+app()
