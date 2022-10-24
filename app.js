@@ -25,7 +25,6 @@ async function app() {
           const DAL = new DataAccessLayer(context)
           const [tweet] = await DAL.insert()
           log.text(tweet)
-
           break
         case "errors" in res:
           console.log(res)
