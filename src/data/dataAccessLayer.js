@@ -1,4 +1,4 @@
-import { db } from "./db.js"
+import db from "./db.js"
 
 export class DataAccessLayer {
   constructor({ username, id, created_at, text }) {

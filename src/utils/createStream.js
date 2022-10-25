@@ -1,11 +1,11 @@
-import { blocklist } from "./utils/blocklist.js"
-import { log } from "./utils/logger.js"
-import { DataAccessLayer } from "./utils/dataAccessLayer.js"
-import { filteredStream } from "./utils/filteredStream.js"
+import { blockList } from "./blockList.js"
+import { log } from "./logger.js"
+import { filterStream } from "./filterStream.js"
+import { DataAccessLayer } from "../data/dataAccessLayer.js"
 
-async function app() {
+export const createStream = async () => {
   try {
-    for await (const res of filteredStream()) {
+    for await (const res of filterStream()) {
       switch (true) {
         case "data" in res:
           const context = {
@@ -15,7 +15,7 @@ async function app() {
             text: res.data.text,
           }
 
-          if (blocklist.includes(context.username)) continue
+          if (blockList.includes(context.username)) continue
           const DAL = new DataAccessLayer(context)
           const [tweet] = await DAL.insert()
           log.message(tweet)
@@ -29,5 +29,3 @@ async function app() {
     console.error(error)
   }
 }
-
-app()
