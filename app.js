@@ -1,17 +1,11 @@
-import { Client } from "twitter-api-sdk"
 import { blocklist } from "./utils/blocklist.js"
-import { log } from "./utils/log.js"
+import { log } from "./utils/logger.js"
 import { DataAccessLayer } from "./utils/dataAccessLayer.js"
-import { config } from "./config/index.js"
+import { stream } from "./stream.js"
 
 async function app() {
-  const client = new Client(config.bearerToken)
-  const stream = client.tweets.searchStream({
-    expansions: ["author_id"],
-    "tweet.fields": ["created_at"],
-  })
   try {
-    for await (const res of stream) {
+    for await (const res of stream()) {
       switch (true) {
         case "data" in res:
           const context = {
