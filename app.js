@@ -24,7 +24,7 @@ async function app() {
           if (blocklist.includes(context.username)) continue
           const DAL = new DataAccessLayer(context)
           const [tweet] = await DAL.insert()
-          log.text(tweet)
+          log.message(tweet)
           break
         case "errors" in res:
           console.log(res)

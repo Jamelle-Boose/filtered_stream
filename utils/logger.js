@@ -1,7 +1,7 @@
 import chalk from "chalk"
 
 export const log = {
-  text: ({ username, text }) => {
+  message: ({ username, text }) => {
     console.log(`${chalk.bgRed(username)}: ${text}\n\n`)
   },
 }
