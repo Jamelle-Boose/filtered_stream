@@ -1,7 +1,7 @@
 import { blocklist } from "./utils/blocklist.js"
 import { log } from "./utils/logger.js"
 import { DataAccessLayer } from "./utils/dataAccessLayer.js"
-import { stream } from "./stream.js"
+import { stream } from "./utils/stream.js"
 
 async function app() {
   try {
