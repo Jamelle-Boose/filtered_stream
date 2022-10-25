@@ -1,11 +1,11 @@
 import { blocklist } from "./utils/blocklist.js"
 import { log } from "./utils/logger.js"
 import { DataAccessLayer } from "./utils/dataAccessLayer.js"
-import { stream } from "./utils/stream.js"
+import { filteredStream } from "./utils/filteredStream.js"
 
 async function app() {
   try {
-    for await (const res of stream()) {
+    for await (const res of filteredStream()) {
       switch (true) {
         case "data" in res:
           const context = {
