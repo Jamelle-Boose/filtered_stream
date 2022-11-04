@@ -16,9 +16,13 @@ export const createStream = async () => {
           }
 
           if (blockList.includes(context.username)) continue
-          const DAL = new DataAccessLayer(context)
-          const [tweet] = await DAL.insert()
-          log.message(tweet)
+          const regex = /\d{4}/g
+          const match = context.text.match(regex)
+          if (match) {
+            const DAL = new DataAccessLayer(context)
+            const [tweet] = await DAL.insert()
+            log.message(tweet)
+          }
           break
         case "errors" in res:
           console.log(res)
