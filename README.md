@@ -1,4 +1,4 @@
-# Tweeety
+# Filtered Stream
 
 The purpose of this Node CLI app is to stream tweets in real-time using the Twitter API v2. The filtered stream endpoint and Twitter annotations were used to filter tweets based on your own topics of interest. I made this because I was trading US equities and wanted real-time updates on a stock ticker. Filtered Steam resolves this issue.
 
