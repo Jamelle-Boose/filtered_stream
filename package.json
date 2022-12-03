@@ -19,6 +19,7 @@
 	},
 	"homepage": "https://github.com/Jamelle-Boose/filtered_stream#readme",
 	"dependencies": {
+		"@notionhq/client": "^2.2.2",
 		"better-sqlite3": "^7.6.2",
 		"chalk": "^5.1.2",
 		"dotenv": "^16.0.3",

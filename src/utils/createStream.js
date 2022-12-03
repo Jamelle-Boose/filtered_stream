@@ -2,6 +2,7 @@ import { blockList } from "./blockList.js"
 import { log } from "./logger.js"
 import { filterStream } from "./filterStream.js"
 import { DataAccessLayer } from "../data/dataAccessLayer.js"
+import { createNotionPage } from "./notion.js"
 
 export const createStream = async () => {
   try {
@@ -21,6 +22,7 @@ export const createStream = async () => {
           if (match) {
             const DAL = new DataAccessLayer(context)
             const [tweet] = await DAL.insert()
+            await createNotionPage(context)
             log.message(tweet)
           }
           break
