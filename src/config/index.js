@@ -7,4 +7,6 @@ if (envFound.error) throw new Error("⚠️  Couldn't find .env file  ⚠️")
 
 export const config = {
   bearerToken: process.env.BEARER_TOKEN,
+  notionToken: process.env.NOTION_TOKEN,
+  notionDatabaseId: process.env.NOTION_DATABASE_ID,
 }
