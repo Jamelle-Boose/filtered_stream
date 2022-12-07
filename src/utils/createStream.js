@@ -3,6 +3,7 @@ import { log } from "./logger.js"
 import { filterStream } from "./filterStream.js"
 import { DataAccessLayer } from "../data/dataAccessLayer.js"
 import { createNotionPage } from "./notion.js"
+import { sendDisconnectNotification } from "./notifier.js"
 
 export const createStream = async () => {
   try {
@@ -27,7 +28,8 @@ export const createStream = async () => {
           }
           break
         case "errors" in res:
-          console.log(res)
+          const error = res.errors
+          sendDisconnectNotification(error)
           break
       }
     }
